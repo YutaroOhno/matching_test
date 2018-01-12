@@ -1,0 +1,20 @@
+= render 'partial/navbar'
+.container
+  .col-md-3
+    / vertical-navbar
+    = render 'partial/verticalnavbar'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        .text-center
+          %span{:style => "font-size:18px;"} ユーザー一覧
+      - @users.each do |user|
+        .col-sm-4.col-md-3
+          .panel.panel-default
+            .panel-heading
+              %h1.panel-title= link_to "#{user.email}",  user_path(user)
+            .panel-body
+            .thumbnail
+              = image_tag(user.avatar)
+            .panel-footer
+              = user.nickname

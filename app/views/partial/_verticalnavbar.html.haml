@@ -1,0 +1,11 @@
+.sidebar-nav
+  .navbar.navbar-default{:role => "navigation"}
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".sidebar-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %label{:style => "color: #fff;"} メニュー
+    .navbar-collapse.collapse.sidebar-navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to "マッチング済", matching_index_path, class: "btn btn-default btn-full"
+        %li= link_to "いいね済", like_path, class: "btn btn-default btn-full"
+        %li= link_to "いいねされた", liked_path, class: "btn btn-default btn-full"
+    / /.nav-collapse

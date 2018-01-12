@@ -1,0 +1,14 @@
+.text-center
+	= image_tag @user.avatar, class: "avatar"
+.text-center#user-description
+	= @user.nickname
+	- if user_signed_in?
+		#follow_form
+			- if current_user.following?(@user)
+				#liked.btn.btn-default いいね済
+			- else
+				= render 'follow', {relationship: @relationship}
+	%br= @user.profile
+#wrap
+	#left-bg
+	#right-bg

@@ -1,0 +1,60 @@
+/ .chat
+/   .chat-main
+/     .chat-body
+/       %ul.chat-messages
+/         - @messages.each do |message|
+/           %li.chat-message
+/             .chat-message__header.clearfix
+/               %p.chat-message__name
+/                 = message.user.nickname
+/               %p.chat-message__time
+/                 = message.created_at
+/               %p.chat-message__body
+/                 = message.body
+/     .chat-footer
+/       = form_for @message, class: 'clearfix' do |f|
+/         .chat-footer__body
+/           = f.text_area :body, row: 1, placeholder: 'type a message'
+/           %label.chat-footer__file
+/             avatar
+/             %i.fa.fa-image
+/           = f.submit 'Send'
+
+.chat
+  .chat-main
+    .chat-body
+      .my-message.clearfix
+        / - @my_messages.each do |message|
+        /   %br.chat-message
+        /     %br.chat-message__name#my_message
+        /       = image_tag message.user.avatar, class: "message-avatar"
+        /       = message.body
+      %ul.chat-messages
+        - @messages.each do |message|
+          %li.chat-message.clearfix
+            - if message.user == current_user
+              .chat-message__header.clearfix.right_space
+                .chat-message__name
+                .chat-message__body
+                  %span.text-left= message.body
+                  = image_tag message.user.avatar, class: "message-avatar"
+            - else
+              .chat-message__header.clearfix 
+                .chat-message__name
+                  = image_tag message.user.avatar, class: "message-avatar"
+                .chat-message__body.text-right
+                  = message.body
+    .chat-footer
+      = form_for @message, html: { class: 'form js-form' } do |f|
+        .chat-footer__body
+          = f.text_area :body, class: "text-field", row: 1, placeholder: 'type a message'
+        = f.submit 'Send'
+
+
+/ <script type='text/javascript'>
+/ (function(){
+/ var t = setInterval(function(){
+/ location.reload(true);
+/ }, 5000);
+/ })();
+/ </script>
