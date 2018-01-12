@@ -5,8 +5,8 @@ class RelationshipsController < ApplicationController
     if @relationship.save
       @follower_user = current_user
       @following_user = User.find(params["following_id"])
-     	@matching = @following_user.following?(current_user)
-     	# なんか汚いので、余裕あったらなんとかしたい
+      @matching = @following_user.following?(current_user)
+      # なんか汚いので、余裕あったらなんとかしたい
 
       respond_to do |format|
         format.json
