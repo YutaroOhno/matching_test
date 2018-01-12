@@ -1,5 +1,5 @@
 class MatchingController < ApplicationController
-	def index
-	  @users = current_user.matchers
-	end
+  def index
+    @users = current_user.matchers
+  end
 end

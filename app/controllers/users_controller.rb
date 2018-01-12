@@ -1,23 +1,23 @@
 class UsersController < ApplicationController
-	
-	def index
-	  @users = User.all
-	end
 
-	def show
-	  @user = User.find(params[:id])
-	  @relationship = Relationship.new
-	end
+  def index
+    @users = User.all
+  end
 
-	# def following
-	#   @user  = User.find(params[:id])
-	#   @users = @user.following
-	#   render 'show_follow'
-	# end
+  def show
+    @user = User.find(params[:id])
+    @relationship = Relationship.new
+  end
 
-	# def followers
-	#   @user  = User.find(params[:id])
-	#   @users = @user.followers
-	#   render 'show_follower'
-	# end
+  # def following
+  #   @user  = User.find(params[:id])
+  #   @users = @user.following
+  #   render 'show_follow'
+  # end
+
+  # def followers
+  #   @user  = User.find(params[:id])
+  #   @users = @user.followers
+  #   render 'show_follower'
+  # end
 end
