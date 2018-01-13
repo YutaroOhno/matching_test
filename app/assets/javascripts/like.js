@@ -207,9 +207,6 @@ $(document).on ('turbolinks:load', function(){
     matchingEffect(animateWreath, christmasMessage, startBurst, snowEffect);
 
     // christmasMessage(startBurst)
-
-
-
   } else {
     $("#follow_form").html(`<div class="btn btn-default">いいね済</div>`)
   }
